@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mpesa</title>
+</head>
+<body>
+
+	<form method="post"  action="">
+		{% csrf_token %}
+		phone:<input type="number" name="phone">
+		name:<input type="text" name="name">
+		<input type="submit" value="submit">
+	</form>
+
+	{% if message %}
+
+	{{message}}
+
+	{% endif %}
+
+	{% if result_code == 0 %}
+
+	{{result_code}}
+
+	<p>Transaction successful</p>
+
+	{% elif result_code == 1032 %}
+
+	{{result_code}}
+
+	<p>Transaction didnt work, try again</p>
+
+	{% endif %}
+
+</body>
+</html>
