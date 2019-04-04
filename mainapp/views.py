@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from mpesa.b2c import transaction
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -27,3 +27,18 @@ def mpesa_callback(request):
 	request.session['result_code'] = result_code
 	print(result_code)
 	return HttpResponse('callback')
+
+
+@csrf_exempt
+def c2b_confirmation(request):
+	body = json.loads(request.body.decode('utf-8'))
+	print(body)
+	return HttpResponse('haha')
+
+
+
+@csrf_exempt
+def c2b_validation(request):
+	body = json.loads(request.body.decode('utf-8'))
+	print(body)
+	return HttpResponse('haha')

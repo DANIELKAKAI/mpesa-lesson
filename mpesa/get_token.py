@@ -9,6 +9,8 @@ r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
 
 access_token = r.json()['access_token']
 
+print(access_token)
+
 
 
 if __name__=='__main__':
